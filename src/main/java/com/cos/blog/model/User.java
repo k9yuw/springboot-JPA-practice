@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.sql.Timestamp;
 
@@ -16,6 +17,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@DynamicInsert // insert 할 때 null인 필드는 알아서 제외시켜줌
 public class User {
 
     @Id //primary key
@@ -30,9 +32,10 @@ public class User {
 
     @Column(nullable = false, length = 50)
     private String email;
-
-    @ColumnDefault(" 'user' ")
-    private String role; //나중에는 String 대신 Enum을 쓰는게 좋음 -> 데이터에 대한 도메인을 만들어줄 수 있음.
+    
+    // @ColumDefault("user") -> 원래 했던 방식
+    @Enumerated(EnumType.STRING) // DB에는 RoleType이라는게 없기 때문에 Role의 타입이 String임을 알려줘야 됨
+    private RoleType role; //String 대신 Enum을 쓰는게 좋음 -> 데이터에 대한 도메인을 만들어줄 수 있음. (정해진 값만 쓸 수 있도록 해서 내가 넣는 값들을 강제. 실수 방지.)
 
     @CreationTimestamp // 시간이 자동으로 입력됨!
     private Timestamp createDate;
