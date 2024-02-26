@@ -28,7 +28,7 @@ public class DummyControllerTest {
         try {
             userRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e){
-            return "해당 id가 DB에 없으므로 삭제에 실패하였습니다."
+            return "해당 id가 DB에 없으므로 삭제에 실패하였습니다.";
         }
 
         return "삭제되었습니다. id: " + id;
@@ -78,7 +78,7 @@ public class DummyControllerTest {
             @Override
             public IllegalArgumentException get() {
                 //TODO Auto-generated method stub
-                return new IllegalArgumentException("해당 유저는 없습니다.");
+                return new IllegalArgumentException("해당 사용자가 없습니다.");
             }
         });
         return user;
