@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-</br>
+
+<br/>
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <p>k9yuw</p>
-  <p>010.0000.0000</p>
-  <p>🚩서울특별시</p>
+    <p>🎈k9yuw</p>
+    <p>📞010-xxxx-xxxx</p>
+    <p>📮LS6 2ER</p>
+</div>
 </div>
 
 </body>
